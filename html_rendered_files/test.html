@@ -1,0 +1,207 @@
+<html><body>
+
+<h1>Test Cases</h1>
+
+<p>
+This file contains test cases for all of the syntactic features of Minidown. 
+</p>
+
+<h2>These are all Paragraphs</h2>
+
+<p>
+This is a paragraph.
+This should be a continuation of the previous paragraph.
+</p>
+
+<p>
+This should be a new paragraph.
+The following characters should be escaped: &lt;, &gt;, &amp;, &#x27;, &quot;
+</p>
+
+<p>
+ This a paragraph with a space in the beginning
+</p>
+
+<p>
+###This incorrectly formatted header needs a space after &#x27;#&#x27; and is a paragraph
+</p>
+
+<p>
+####### This incorrectly formatted header has 7 #s
+</p>
+
+<p>
+###
+</p>
+
+<p>
+ #### This incorrectly formatted header has a preceding space and the one before is missing a leading space
+</p>
+
+<p>
+#####5 The #s need to be immediately followed by a space
+</p>
+
+<p>
+3#### There cannot be any other char before the #s
+</p>
+
+<p>
+*This is an incorrectly formatted bulleted list 1 (Missing leading space)
+</p>
+
+<p>
+ * This is incorrectly formatted bulleted list 2 (Preceding space)
+</p>
+
+<p>
+ *This is incorrectly formatted bulleted list 3 (Missing leading space and there is a preceding space)
+</p>
+
+<p>
+6* This is incorrectly formatted bulleted list 4 (Preceding char)
+</p>
+
+<h2>These are all Headers</h2>
+
+<h1>First-level header</h1>
+
+<h2>Second-level header</h2>
+
+<h3>Third-level header</h3>
+
+<h4>Fourth-level header</h4>
+
+<h5>Fifth-level header</h5>
+
+<h6>Sixth-level header</h6>
+
+<h4>The following characters should be escaped: &lt;, &gt;, &amp;, &#x27;, &quot;</h4>
+
+<h2>The following are all bulleted lists</h2>
+
+<ul>
+<li> This item1 of bulleted list 1  </li>
+</ul>
+
+<ul>
+<li> This is item1 of bulleted list 2 This is a continuation of item1 of bulleted list 2  </li>
+<li> This is item2 of bulleted list 2 *This is still item2 of bulleted list 2  * This is still item2 of bulleted list 2 7* This is still item2 of bulleted list 2  </li>
+<li> This is item3 of bulleted list 2 The following characters should be escaped: &lt;, &gt;, &amp;, &#x27;, &quot;  </li>
+</ul>
+
+<h2>The following all contain inline code</h2>
+
+<p>
+This paragraph contains inline code: 
+<code> print(&#x27;Hello World!&#x27;) </code>
+ This is plain text
+</p>
+
+<h4>This header contains code: <code> def compare(x, y): return x == y </code> This is plain text</h4>
+
+<ul>
+<li> This bulleted list item that contains code: <code> def add(x, y): return x + y </code>   This is plain text  </li>
+</ul>
+
+<p>
+Check that characters are being properly escaped: 
+<code> print(&quot; &lt;, &gt;, &amp;, &#x27; &quot;) </code>
+</p>
+
+<h2>The following do not have inline code</h2>
+
+<p>
+This code: 
+print(x) is missing a closing back tick
+</p>
+
+<ul>
+<li> Inline code cannot contain a newline character  </li>
+<li> def add(x, y):      return x + y  </li>
+<li> the previous list item is plain text only and does not contain inline code  </li>
+</ul>
+
+<h2>The following is an example of displayed code</h2>
+
+<pre>
+def compare(x, y):
+    return x == y
+</pre>
+
+<h4>The following checks for escaping characters in displayed code</h4>
+
+<pre>
+print(&quot;Check that characters are being escaped: &lt;, &gt;, &amp;, &#x27; &quot;)
+</pre>
+
+<h2>Displayed code Errors</h2>
+
+<p>
+The following example is not displayed code since both the starting and ending
+triple backticks are formatted incorrectly. This errored code block should be
+displayed as a paragraph
+</p>
+
+<p>
+ 
+print(&#x27;Hello World!&#x27;)
+x
+</p>
+
+<p>
+If only one of the triple backticks is formatted incorrectly but the other one is
+formatted correctly, then starting from the correctly formatted one the code block will
+contain everything remaining in the file until another 
+ is found or EOF is reached
+</p>
+
+<pre>
+print(&quot;The starting ``` is correctly formatted)
+a```
+print(&quot;The code block has not ended still&quot;)
+```x
+print(&quot;The code block has not ended still&quot;)
+</pre>
+
+<p>
+</p>
+
+<pre>
+print(&quot;In a code block&quot;)
+</pre>
+
+<p>
+Exited code block
+</p>
+
+<p>
+The following example shows what happens if a correctly formatted triple-
+backtick for a code block is never closed with another correctly formatted triple-backtick
+</p>
+
+<pre>
+The rest of this file will be part of this code block including this line. 
+## This will not be interpreted as a header
+
+
+* This will not be intepreted as a bullet list
+
+
+Still in the code block
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+</body></html>
